@@ -7,21 +7,20 @@ import '../widgets/section_header.dart';
 class AwardsSection extends StatelessWidget {
   const AwardsSection({super.key});
 
+  // 3 awards only — CI/CD removed
   static const _awards = [
     _AwardData('🌟', 'Senior Promotion', 'Jul 2024',
-        'Advanced to Senior Flutter Developer in just 2.5 years through outstanding performance in engineering, CI/CD and technical leadership.'),
+        'Advanced to Senior Flutter Developer in just 2.5 years through outstanding performance in engineering, architecture and technical leadership.'),
     _AwardData('🏅', 'Valuable Contributor Award', '2024',
         'Recognised for consistently delivering projects within deadline and scope, driving measurable improvements in product quality and team velocity.'),
     _AwardData('⚡', 'Spot Excellence Award', '2023',
         'Fast-tracked to production projects in 3 months versus the standard 6-month onboarding timeline through exceptional technical ramp-up.'),
-    _AwardData('🚀', 'CI/CD Impact Award', '2023',
-        'Recognised for reducing team deployment time by 94% — from 4 hours to 15 minutes — through GitHub Actions and Codemagic pipeline design.'),
   ];
 
   @override
   Widget build(BuildContext context) {
     final w = MediaQuery.of(context).size.width;
-    final cols = w > 900 ? 4 : w > 600 ? 2 : 1;
+    final cols = w > 900 ? 3 : w > 600 ? 2 : 1;
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 80),
@@ -56,7 +55,7 @@ class AwardsSection extends StatelessWidget {
             child: Padding(
               padding: EdgeInsets.only(right: e.key < rowItems.length - 1 ? 13 : 0),
               child: RevealWidget(
-                delay: Duration(milliseconds: 80 * e.key),
+                delay: Duration(milliseconds: 100 * e.key),
                 child: _AwardCard(data: e.value),
               ),
             ),
@@ -84,7 +83,8 @@ class _AwardCardState extends State<_AwardCard> with SingleTickerProviderStateMi
   void initState() {
     super.initState();
     _floatCtrl = AnimationController(vsync: this, duration: const Duration(seconds: 3))..repeat(reverse: true);
-    _floatAnim = Tween<double>(begin: 0, end: -6).animate(CurvedAnimation(parent: _floatCtrl, curve: Curves.easeInOut));
+    _floatAnim = Tween<double>(begin: 0, end: -7)
+        .animate(CurvedAnimation(parent: _floatCtrl, curve: Curves.easeInOut));
   }
 
   @override
@@ -93,29 +93,25 @@ class _AwardCardState extends State<_AwardCard> with SingleTickerProviderStateMi
   @override
   Widget build(BuildContext context) {
     return GlassCard(
-      child: Column(
-        children: [
-          AnimatedBuilder(
-            animation: _floatAnim,
-            builder: (_, child) => Transform.translate(
-              offset: Offset(0, _floatAnim.value),
-              child: child,
-            ),
-            child: Text(widget.data.emoji, style: const TextStyle(fontSize: 36)),
-          ),
-          const SizedBox(height: 10),
-          Text(widget.data.title,
-              textAlign: TextAlign.center,
-              style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w700, color: AppColors.textPrimary)),
-          const SizedBox(height: 5),
-          Text(widget.data.year,
-              style: const TextStyle(fontFamily: 'monospace', fontSize: 10.5, color: AppColors.cyan)),
-          const SizedBox(height: 7),
-          Text(widget.data.desc,
-              textAlign: TextAlign.center,
-              style: const TextStyle(fontSize: 11.5, color: AppColors.textSecondary, height: 1.55)),
-        ],
-      ),
+      child: Column(children: [
+        AnimatedBuilder(
+          animation: _floatAnim,
+          builder: (_, child) => Transform.translate(
+            offset: Offset(0, _floatAnim.value), child: child),
+          child: Text(widget.data.emoji, style: const TextStyle(fontSize: 38)),
+        ),
+        const SizedBox(height: 12),
+        Text(widget.data.title,
+            textAlign: TextAlign.center,
+            style: const TextStyle(fontSize: 13.5, fontWeight: FontWeight.w700, color: AppColors.textPrimary)),
+        const SizedBox(height: 5),
+        Text(widget.data.year,
+            style: const TextStyle(fontFamily: 'monospace', fontSize: 10.5, color: AppColors.cyan)),
+        const SizedBox(height: 8),
+        Text(widget.data.desc,
+            textAlign: TextAlign.center,
+            style: const TextStyle(fontSize: 11.5, color: AppColors.textSecondary, height: 1.55)),
+      ]),
     );
   }
 }

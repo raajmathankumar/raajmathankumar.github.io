@@ -8,7 +8,7 @@ class ExperienceSection extends StatelessWidget {
   const ExperienceSection({super.key});
 
   static const _bullets = [
-    'Developed and published 5 production Flutter apps on App Store & Play Store across Android, iOS, Web and Desktop — serving 50K+ users with an average 4.3★ rating.',
+    'Developed and published 5 production Flutter apps on App Store & Play Store across Android, iOS, Web and Desktop — serving 50K+ active users with an average 4.3★ rating.',
     'Integrated REST APIs, GraphQL endpoints and WebSocket services enabling real-time data sync across 5+ microservices.',
     'Built complete In-App Purchase flows for iOS & Android including auto-renewable subscriptions with server-side receipt validation via Node.js Cloud Functions.',
     'Implemented CI/CD pipelines using GitHub Actions and Codemagic, reducing deployment time from 4 hours to 15 minutes — a 94% improvement.',
@@ -92,7 +92,7 @@ class ExperienceSection extends StatelessWidget {
             borderRadius: BorderRadius.circular(20),
             border: Border.all(color: AppColors.green.withOpacity(0.28)),
           ),
-          child: const Text('🟢 Current Role',
+          child: const Text('✅ Oct 2021 – Feb 2026',
               style: TextStyle(fontSize: 11, fontWeight: FontWeight.w600, color: AppColors.green)),
         ),
       ],
@@ -101,7 +101,7 @@ class ExperienceSection extends StatelessWidget {
 
   Widget _buildDuration() {
     return Text(
-      '📅  July 2021 – Present  ·  Promoted to Senior Engineer · Jul 2024',
+      '📅  Oct 2021 – Feb 11, 2026  ·  Senior Flutter Developer · Promoted Jul 2024',
       style: const TextStyle(fontFamily: 'monospace', fontSize: 11, color: AppColors.textSecondary),
     );
   }

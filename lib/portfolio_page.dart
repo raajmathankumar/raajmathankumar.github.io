@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:raajmathankumar/sections/awards_section.dart';
+import 'package:raajmathankumar/sections/contact_section.dart';
+import 'package:raajmathankumar/sections/experience_section.dart';
+import 'package:raajmathankumar/sections/hero_section.dart';
+import 'package:raajmathankumar/sections/projects_section.dart';
+import 'package:raajmathankumar/sections/skills_section.dart';
+import 'package:raajmathankumar/widgets/animated_bg.dart';
+import 'package:raajmathankumar/widgets/nav_bar.dart';
 import 'main.dart';
-import 'sections/hero_section.dart';
-import 'sections/skills_section.dart';
-import 'sections/experience_section.dart';
-import 'sections/projects_section.dart';
-import 'sections/awards_section.dart';
-import 'sections/contact_section.dart';
-import 'widgets/nav_bar.dart';
-import 'widgets/animated_bg.dart';
+
 
 class PortfolioPage extends StatefulWidget {
   const PortfolioPage({super.key});
