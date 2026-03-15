@@ -28,5 +28,5 @@ jobs:
       - name: Deploy to gh-pages
         uses: bluefireteam/flutter-gh-pages@v9
         with:
-          baseHref: /portfolio/
+          baseHref: /raajmathankumar.github.io/
           # ⚠️ Change /portfolio/ to your actual repo name
