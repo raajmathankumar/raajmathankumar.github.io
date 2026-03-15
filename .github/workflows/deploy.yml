@@ -24,7 +24,7 @@ jobs:
         run: flutter pub get
 
       - name: Build web
-        run: flutter build web --release --base-href /raajmathankumar.github.io/
+        run: flutter build web --release --base-href / --no-tree-shake-icons
         # ⚠️ Change to your actual repo name
 
       - name: Deploy to gh-pages
